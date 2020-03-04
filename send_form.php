@@ -6,7 +6,7 @@ if(isset($_POST['email'])) {
     $email_to = "
  hola@anemoidigital.com";
 
-    $email_subject = "Consulta de Servicios";
+    $email_name = "Consulta de Servicios";
 
     function died($error) {
 
@@ -28,8 +28,6 @@ if(isset($_POST['email'])) {
 
         !isset($_POST['email']) ||
 
-        !isset($_POST['subject']) ||
-
         !isset($_POST['phone']) ||
 
         !isset($_POST['message'])) {
@@ -42,8 +40,6 @@ if(isset($_POST['email'])) {
     $name = $_POST['name']; // requerido
 
     $email = $_POST['email']; // requerido
-
-    $subject = $_POST['subject']; // requerido
 
     $phone = $_POST['phone']; // requerido
 
@@ -104,7 +100,7 @@ $headers = 'From: '.$email."\r\n".
 
 'X-Mailer: PHP/' . phpversion();
 
-@mail($email_to, $email_subject, $email_phone, $email_message, $headers);
+@mail($email_to, $email_phone, $email_message, $headers);
 
 ?>
 
