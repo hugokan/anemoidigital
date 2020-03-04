@@ -28,6 +28,8 @@ if(isset($_POST['email'])) {
 
         !isset($_POST['email']) ||
 
+        !isset($_POST['subject']) ||
+
         !isset($_POST['phone']) ||
 
         !isset($_POST['message'])) {
@@ -41,9 +43,11 @@ if(isset($_POST['email'])) {
 
     $email = $_POST['email']; // requerido
 
-    $phone = $_POST['phone']; // no requerido
+    $subject = $_POST['subject']; // requerido
 
-    $message = $_POST['message']; // requerido
+    $phone = $_POST['phone']; // requerido
+
+    $message = $_POST['message']; // no requerido
 
     $error_message = "$error";
 
@@ -100,18 +104,16 @@ $headers = 'From: '.$email."\r\n".
 
 'X-Mailer: PHP/' . phpversion();
 
-@mail($email_to, $email_phone, $email_message, $headers);
+@mail($email_to, $email_subject, $email_phone, $email_message, $headers);
 
 ?>
 
 
 
-<!-- incluye aqui tu propio mensaje de Éxito-->
-
-Gracias! Nos pondremos en contacto contigo a la brevedad
+<!-- incluye aqui el mensaje de envio-->
 
 <?php
-echo "<script>alert('Formulario enviado'); location.href='index.html'</script>";
+echo "<script>alert('Gracias! Nos pondremos en contacto contigo a la brevedad'); location.href='index.html'</script>";
 }
 
 ?>
